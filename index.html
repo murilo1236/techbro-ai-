@@ -6,30 +6,52 @@
 
 <style>
 
+/* FUNDO BINÁRIO */
+
 body{
-font-family: Arial;
-background:black;
-color:white;
-text-align:center;
 margin:0;
+font-family:Arial;
+color:#00ff88;
+background:black;
+overflow:hidden;
 }
 
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* HEADER */
+
 header{
-background:#8b0000;
+text-align:center;
 padding:20px;
+background:#001a0f;
+border-bottom:2px solid #00ff88;
 }
 
 .logo{
 width:120px;
+margin-bottom:10px;
 }
+
+h1{
+margin:5px;
+color:#00ff88;
+}
+
+/* CHAT */
 
 #chatbox{
 width:420px;
 margin:40px auto;
-background:#111;
+background:#001a0f;
 padding:25px;
 border-radius:10px;
-border:2px solid #8b0000;
+border:2px solid #00ff88;
+box-shadow:0 0 15px #00ff88;
 }
 
 input{
@@ -37,22 +59,41 @@ width:70%;
 padding:10px;
 border:none;
 border-radius:5px;
+background:black;
+color:#00ff88;
+border:1px solid #00ff88;
 }
 
 button{
 padding:10px;
-background:#8b0000;
-color:white;
+background:#00ff88;
+color:black;
 border:none;
 border-radius:5px;
 cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+background:#00cc6a;
 }
 
 #resposta{
 margin-top:20px;
-background:#1a1a1a;
+background:black;
 padding:15px;
 border-radius:5px;
+border:1px solid #00ff88;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:#001a0f;
+margin-top:40px;
+border-top:2px solid #00ff88;
 }
 
 </style>
@@ -60,40 +101,159 @@ border-radius:5px;
 
 <body>
 
+<canvas id="matrix"></canvas>
+
 <header>
+
+<img src="logo.png" class="logo">
+
 <h1>TechBro AI</h1>
-<p>Assistente de PC Gamer</p>
+<p>Assistente inteligente de PCs Gamer</p>
+
 </header>
 
 <div id="chatbox">
 
-<input id="pergunta" placeholder="Pergunte sobre PCs gamers...">
+<input id="pergunta" placeholder="Pergunte sobre PC gamer...">
 <button onclick="perguntar()">Enviar</button>
 
 <div id="resposta">
-Olá! Eu sou a TechBro AI 🤖
+
+Olá! Eu sou a <b>TechBro AI</b> 🤖<br><br>
+
+Posso ajudar com:<br><br>
+
+• Montagem de PC Gamer<br>
+• Placa de vídeo<br>
+• Processadores<br>
+• FPS em jogos<br>
+• Upgrade de PC<br>
+• Fonte ideal<br>
+
 </div>
 
 </div>
+
+<footer>
+
+<p>Assistência Técnica TechBro</p>
+<p>Instagram: @techbro_loja001</p>
+
+</footer>
 
 <script>
+
+/* CHAT AI */
 
 function perguntar(){
 
 let pergunta = document.getElementById("pergunta").value.toLowerCase();
-let resposta = "Não entendi a pergunta.";
 
-if(pergunta.includes("pc barato")){
-resposta = "PC barato: Ryzen 5 5600G + 16GB RAM.";
+let resposta = "Não tenho essa informação ainda. Entre em contato no Instagram @techbro_loja001";
+
+/* PCs */
+
+if(pergunta.includes("pc 3000") || pergunta.includes("pc barato")){
+resposta = "PC Gamer 3000: Ryzen 5 5600G, 16GB RAM, SSD 500GB.";
+}
+
+else if(pergunta.includes("pc 5000")){
+resposta = "PC Gamer 5000: Ryzen 5 5600 + RX 6600 + 16GB RAM.";
+}
+
+else if(pergunta.includes("pc 8000")){
+resposta = "PC Gamer 8000: Ryzen 7 5700X + RTX 4070 + 32GB RAM.";
+}
+
+/* GPU */
+
+else if(pergunta.includes("placa de video")){
+resposta = "Placas custo benefício: RX 6600, RTX 3060, RTX 4060.";
 }
 
 else if(pergunta.includes("rx 6600")){
-resposta = "RX 6600 roda GTA V ~140 FPS.";
+resposta = "RX 6600: GTA V 140 FPS, Warzone 90 FPS, Fortnite 160 FPS.";
+}
+
+else if(pergunta.includes("rtx 4060")){
+resposta = "RTX 4060: Warzone 130 FPS, Fortnite 200 FPS.";
+}
+
+/* CPU */
+
+else if(pergunta.includes("processador")){
+resposta = "Processadores recomendados: Ryzen 5 5600, Ryzen 7 5700X, i5 12400F.";
+}
+
+/* RAM */
+
+else if(pergunta.includes("ram") || pergunta.includes("memoria")){
+resposta = "Para jogos o ideal hoje é 16GB ou 32GB em dual channel.";
+}
+
+/* SSD */
+
+else if(pergunta.includes("ssd")){
+resposta = "SSD recomendado: NVMe 500GB ou 1TB.";
+}
+
+/* Fonte */
+
+else if(pergunta.includes("fonte")){
+resposta = "Fonte recomendada: 550W a 750W 80 Plus Bronze ou Gold.";
+}
+
+/* Upgrade */
+
+else if(pergunta.includes("upgrade")){
+resposta = "Upgrade gamer: primeiro SSD, depois GPU e RAM.";
 }
 
 document.getElementById("resposta").innerHTML = resposta;
 
 }
+
+/* FUNDO MATRIX BINÁRIO */
+
+var canvas = document.getElementById("matrix");
+var ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+var letters = "01";
+letters = letters.split("");
+
+var fontSize = 14;
+var columns = canvas.width/fontSize;
+
+var drops = [];
+for(var x = 0; x < columns; x++)
+drops[x] = 1;
+
+function draw(){
+
+ctx.fillStyle = "rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle = "#00ff88";
+ctx.font = fontSize + "px monospace";
+
+for(var i=0;i<drops.length;i++){
+
+var text = letters[Math.floor(Math.random()*letters.length)];
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+drops[i] = 0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw,33);
 
 </script>
 
