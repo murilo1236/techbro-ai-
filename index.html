@@ -1,121 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<title>TechBro AI</title>
-
-<style>
-
-body{
-font-family: Arial;
-background:black;
-color:white;
-text-align:center;
-margin:0;
-}
-
-header{
-background:#8b0000;
-padding:20px;
-}
-
-.logo{
-width:120px;
-}
-
-h1{
-margin:10px;
-}
-
-#chatbox{
-width:420px;
-margin:40px auto;
-background:#111;
-padding:25px;
-border-radius:10px;
-border:2px solid #8b0000;
-}
-
-input{
-width:70%;
-padding:10px;
-border:none;
-border-radius:5px;
-}
-
-button{
-padding:10px;
-background:#8b0000;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-
-button:hover{
-background:red;
-}
-
-#resposta{
-margin-top:20px;
-background:#1a1a1a;
-padding:15px;
-border-radius:5px;
-}
-
-footer{
-margin-top:40px;
-padding:20px;
-background:#111;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<img src="logo.png" class="logo">
-<h1>TechBro AI</h1>
-<p>Assistente inteligente de PCs Gamer</p>
-
-</header>
-
-<div id="chatbox">
-
-<input id="pergunta" placeholder="Pergunte sobre PCs gamers...">
-<button onclick="perguntar()">Enviar</button>
-
-<div id="resposta">
-
-Olá! Eu sou a TechBro AI 🤖 <br><br>
-
-Posso ajudar com:<br><br>
-
-• Montagem de PC Gamer<br>
-• Escolha de placa de vídeo<br>
-• Processadores<br>
-• Fonte ideal<br>
-• Upgrade de PC<br>
-• FPS em jogos<br>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>Assistência Técnica TechBro</p>
-<p>Instagram: @techbro_loja001</p>
-
-</footer>
-
 <script>
 
 function perguntar(){
 
-let pergunta = document.getElementById("pergunta").value.toLowerCase();
+let pergunta = document.getElementById("pergunta").value;
+
+if(!pergunta){
+document.getElementById("resposta").innerHTML = "Digite uma pergunta primeiro.";
+return;
+}
+
+pergunta = pergunta.toLowerCase();
 
 let resposta = "Ainda não tenho essa informação, mas a TechBro pode te ajudar! Instagram: @techbro_loja001";
 
@@ -208,6 +102,3 @@ document.getElementById("resposta").innerHTML = resposta;
 }
 
 </script>
-
-</body>
-</html>
