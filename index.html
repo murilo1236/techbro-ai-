@@ -1,51 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>TechBro AI</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:black;
+color:white;
+text-align:center;
+margin:0;
+}
+
+header{
+background:#8b0000;
+padding:20px;
+}
+
+.logo{
+width:120px;
+}
+
+h1{
+margin:10px;
+}
+
+#chatbox{
+width:420px;
+margin:40px auto;
+background:#111;
+padding:25px;
+border-radius:10px;
+border:2px solid #8b0000;
+}
+
+input{
+width:70%;
+padding:10px;
+border:none;
+border-radius:5px;
+}
+
+button{
+padding:10px;
+background:#8b0000;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:red;
+}
+
+#resposta{
+margin-top:20px;
+background:#1a1a1a;
+padding:15px;
+border-radius:5px;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#111;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="logo.png" class="logo">
+<h1>TechBro AI</h1>
+<p>Assistente inteligente de PCs Gamer</p>
+
+</header>
+
+<div id="chatbox">
+
+<input id="pergunta" placeholder="Pergunte sobre PCs gamers...">
+<button onclick="perguntar()">Enviar</button>
+
+<div id="resposta">
+
+Olá! Eu sou a TechBro AI 🤖 <br><br>
+
+Posso ajudar com:<br><br>
+
+• Montagem de PC Gamer<br>
+• Escolha de placa de vídeo<br>
+• Processadores<br>
+• Fonte ideal<br>
+• Upgrade de PC<br>
+• FPS em jogos<br>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>Assistência Técnica TechBro</p>
+<p>Instagram: @techbro_loja001</p>
+
+</footer>
+
 <script>
+
 function perguntar(){
 
-let pergunta = document.getElementById("pergunta").value.toLowerCase()
+let pergunta = document.getElementById("pergunta").value.toLowerCase();
 
-let resposta = "Ainda não tenho essa informação, mas a TechBro pode te ajudar! Instagram: @techbro_loja001"
+let resposta = "Ainda não tenho essa informação, mas a TechBro pode te ajudar! Instagram: @techbro_loja001";
 
-if(pergunta.includes("pc gamer barato")){
-resposta = "Configuração gamer barata: Ryzen 5 5600G, 16GB RAM, SSD 500GB. Jogos: GTA V ~60 FPS, Fortnite ~70 FPS, Valorant ~120 FPS."
+/* PC barato */
+
+if(pergunta.includes("pc gamer barato") || pergunta.includes("pc 3000")){
+
+resposta = "PC gamer barato recomendado: Ryzen 5 5600G, 16GB RAM, SSD 500GB. Jogos: GTA V ~60 FPS, Fortnite ~70 FPS, Valorant ~120 FPS.";
+
 }
+
+/* PC intermediario */
+
+else if(pergunta.includes("pc 5000")){
+
+resposta = "PC gamer até 5000: Ryzen 5 5600 + RX 6600, 16GB RAM, SSD 1TB. Jogos: Warzone ~90 FPS, GTA V ~120 FPS, Fortnite ~150 FPS.";
+
+}
+
+/* GPU */
 
 else if(pergunta.includes("placa de video")){
-resposta = "Placas de vídeo custo benefício: RX 6600, RTX 3060 ou RX 6650 XT."
-}
 
-else if(pergunta.includes("processador")){
-resposta = "Processadores gamer recomendados: Ryzen 5 5600, Ryzen 7 5700X ou Intel i5 12400F."
-}
+resposta = "Placas de vídeo custo benefício: RX 6600, RTX 3060 ou RX 6650 XT.";
 
-else if(pergunta.includes("memoria")){
-resposta = "Para jogos hoje o ideal é 16GB de RAM em dual channel."
-}
-
-else if(pergunta.includes("ssd")){
-resposta = "SSD recomendado: mínimo 500GB NVMe para melhor velocidade."
-}
-
-else if(pergunta.includes("fonte")){
-resposta = "Fontes recomendadas: 500W a 650W de marcas confiáveis."
-}
-
-else if(pergunta.includes("upgrade")){
-resposta = "Para upgrade gamer o melhor é investir em SSD, mais RAM ou placa de vídeo."
 }
 
 else if(pergunta.includes("rx 6600")){
-resposta = "RX 6600 roda GTA V ~140 FPS, Warzone ~90 FPS, Fortnite ~160 FPS."
+
+resposta = "RX 6600 roda GTA V ~140 FPS, Warzone ~90 FPS, Fortnite ~160 FPS em 1080p.";
+
 }
 
 else if(pergunta.includes("rtx 4060")){
-resposta = "RTX 4060 roda Warzone ~130 FPS, Fortnite ~200 FPS e Cyberpunk ~80 FPS."
+
+resposta = "RTX 4060 roda Warzone ~130 FPS, Fortnite ~200 FPS e Cyberpunk ~80 FPS.";
+
 }
+
+/* CPU */
+
+else if(pergunta.includes("processador")){
+
+resposta = "Processadores gamer recomendados: Ryzen 5 5600, Ryzen 7 5700X ou Intel i5 12400F.";
+
+}
+
+/* RAM */
+
+else if(pergunta.includes("memoria") || pergunta.includes("ram")){
+
+resposta = "Para jogos hoje o ideal é 16GB de RAM em dual channel.";
+
+}
+
+/* SSD */
+
+else if(pergunta.includes("ssd")){
+
+resposta = "SSD recomendado: mínimo 500GB NVMe para melhor velocidade.";
+
+}
+
+/* Fonte */
+
+else if(pergunta.includes("fonte")){
+
+resposta = "Fontes recomendadas: 500W a 650W de marcas confiáveis como Corsair, Cooler Master ou XPG.";
+
+}
+
+/* Upgrade */
+
+else if(pergunta.includes("upgrade")){
+
+resposta = "Para upgrade gamer o melhor é investir em SSD, mais RAM ou placa de vídeo.";
+
+}
+
+/* contato */
 
 else if(pergunta.includes("contato")){
-resposta = "Entre em contato com a TechBro no Instagram: @techbro_loja001"
-}
 
-document.getElementById("resposta").innerHTML = resposta
+resposta = "Entre em contato com a TechBro no Instagram: @techbro_loja001";
 
 }
+
+document.getElementById("resposta").innerHTML = resposta;
+
+}
+
 </script>
+
+</body>
+</html>
