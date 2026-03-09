@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>TechBro AI</title>
 
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+h1{
+margin-top:40px;
+}
+
+#chatbox{
+width:400px;
+margin:auto;
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+}
+
+input{
+width:70%;
+padding:10px;
+border:none;
+border-radius:5px;
+}
+
+button{
+padding:10px;
+background:#22c55e;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+#resposta{
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🤖 TechBro AI</h1>
+<p>Assistente de montagem de PCs</p>
+
+<div id="chatbox">
+
+<input id="pergunta" placeholder="Pergunte algo sobre PCs...">
+<button onclick="perguntar()">Enviar</button>
+
+<div id="resposta"></div>
+
+</div>
+
+<script>
+
+function perguntar(){
+
+let pergunta = document.getElementById("pergunta").value.toLowerCase()
+
+let resposta = "Ainda estou aprendendo. Entre em contato com a TechBro no Instagram @pluri.coisas"
+
+if(pergunta.includes("pc gamer")){
+resposta = "Para um PC gamer custo benefício recomendo: Ryzen 5 5600G, 16GB RAM e SSD 500GB."
+}
+
+else if(pergunta.includes("fonte")){
+resposta = "Recomendamos fonte de 500W ou 600W de boa qualidade."
+}
+
+else if(pergunta.includes("limpeza")){
+resposta = "A limpeza deve ser feita com ar comprimido e pincel antiestático."
+}
+
+else if(pergunta.includes("contato")){
+resposta = "Instagram da TechBro: @pluri.coisas"
+}
+
+document.getElementById("resposta").innerText = resposta
+
+}
+
+</script>
+
+</body>
+</html>
