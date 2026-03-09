@@ -8,21 +8,32 @@
 
 body{
 font-family: Arial;
-background:#0f172a;
+background:black;
 color:white;
 text-align:center;
+margin:0;
+}
+
+header{
+background:#8b0000;
+padding:20px;
+}
+
+.logo{
+width:120px;
 }
 
 h1{
-margin-top:40px;
+margin:10px;
 }
 
 #chatbox{
-width:400px;
-margin:auto;
-background:#1e293b;
-padding:20px;
+width:420px;
+margin:40px auto;
+background:#111;
+padding:25px;
 border-radius:10px;
+border:2px solid #8b0000;
 }
 
 input{
@@ -34,14 +45,28 @@ border-radius:5px;
 
 button{
 padding:10px;
-background:#22c55e;
+background:#8b0000;
+color:white;
 border:none;
 border-radius:5px;
 cursor:pointer;
 }
 
+button:hover{
+background:red;
+}
+
 #resposta{
 margin-top:20px;
+background:#1a1a1a;
+padding:15px;
+border-radius:5px;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#111;
 }
 
 </style>
@@ -49,17 +74,38 @@ margin-top:20px;
 
 <body>
 
-<h1>🤖 TechBro AI</h1>
-<p>Assistente de montagem de PCs</p>
+<header>
+
+<img src="logo.png" class="logo">
+<h1>TechBro AI</h1>
+<p>Assistente inteligente de PCs Gamer</p>
+
+</header>
 
 <div id="chatbox">
 
-<input id="pergunta" placeholder="Pergunte algo sobre PCs...">
+<input id="pergunta" placeholder="Pergunte sobre PCs gamers...">
 <button onclick="perguntar()">Enviar</button>
 
-<div id="resposta"></div>
+<div id="resposta">
+Olá! Eu sou a TechBro AI 🤖<br>
+Posso ajudar com:
+<br><br>
+• Montagem de PC Gamer  
+• Escolha de placa de vídeo  
+• Processadores  
+• Fonte ideal  
+• Upgrade de PC  
+</div>
 
 </div>
+
+<footer>
+
+<p>Assistência Técnica TechBro</p>
+<p>Instagram: @pluri.coisas</p>
+
+</footer>
 
 <script>
 
@@ -67,22 +113,54 @@ function perguntar(){
 
 let pergunta = document.getElementById("pergunta").value.toLowerCase()
 
-let resposta = "Ainda estou aprendendo. Entre em contato com a TechBro no Instagram @pluri.coisas"
+let resposta = "Ainda não tenho essa informação, mas a TechBro pode te ajudar! Instagram: @pluri.coisas"
 
-if(pergunta.includes("pc gamer")){
-resposta = "Para um PC gamer custo benefício recomendo: Ryzen 5 5600G, 16GB RAM e SSD 500GB."
+if(pergunta.includes("pc gamer barato")){
+
+resposta = "Configuração gamer barata recomendada: Ryzen 5 5600G, 16GB RAM, SSD 500GB e fonte 500W."
+
+}
+
+else if(pergunta.includes("placa de video")){
+
+resposta = "Boas placas de vídeo custo benefício: RX 6600, RTX 3060 ou RX 6650 XT."
+
+}
+
+else if(pergunta.includes("processador")){
+
+resposta = "Processadores gamer recomendados: Ryzen 5 5600, Ryzen 7 5700X ou Intel i5 12400F."
+
+}
+
+else if(pergunta.includes("memoria")){
+
+resposta = "Para jogos hoje o ideal é 16GB de RAM em dual channel."
+
+}
+
+else if(pergunta.includes("ssd")){
+
+resposta = "SSD recomendado: mínimo 500GB NVMe para melhor velocidade."
+
 }
 
 else if(pergunta.includes("fonte")){
-resposta = "Recomendamos fonte de 500W ou 600W de boa qualidade."
+
+resposta = "Fontes recomendadas: 500W a 650W de marcas confiáveis como Corsair, Cooler Master ou XPG."
+
 }
 
-else if(pergunta.includes("limpeza")){
-resposta = "A limpeza deve ser feita com ar comprimido e pincel antiestático."
+else if(pergunta.includes("upgrade")){
+
+resposta = "Para upgrade gamer o melhor é investir em SSD, mais RAM ou placa de vídeo."
+
 }
 
 else if(pergunta.includes("contato")){
-resposta = "Instagram da TechBro: @pluri.coisas"
+
+resposta = "Entre em contato com a TechBro no Instagram: @pluri.coisas"
+
 }
 
 document.getElementById("resposta").innerText = resposta
